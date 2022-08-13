@@ -65,7 +65,8 @@ namespace pokerbot3
                 Console.WriteLine(Convert.ToString((long)bf,toBase:2));
             }
             bool straight = isStraight(solo);
-            Console.WriteLine("is straight:" + isStraight(solo));
+            Console.WriteLine(Convert.ToString(solo, toBase: 2));
+            //Console.WriteLine("is straight:" + isStraight(solo));
             int score = 0;
             if (straight && flush)
             {
@@ -379,8 +380,8 @@ namespace pokerbot3
 
             int[] holeCardSuits2 = new int[] { 2, 3 };
             int[] holeCardRanks2 = new int[] { 7, 14 };
-            int[] tableCardSuits2 = new int[] { 3, 3,3};
-            int[] tableCardRanks2 = new int[] {2, 12,10};
+            int[] tableCardSuits2 = new int[] { 0,1,2,3,2};
+            int[] tableCardRanks2 = new int[] {14,2,5,7,10};
             List<KeyValuePair<int, int>> myHoleCards2 = new List<KeyValuePair<int, int>>();
             List<KeyValuePair<int, int>> tableCards2 = new List<KeyValuePair<int, int>>();
             for (int i = 0; i < 2; i++)
@@ -392,7 +393,7 @@ namespace pokerbot3
             {
                 tableCards2.Add(new KeyValuePair<int, int>(tableCardRanks2[i], tableCardSuits2[i]));
             }
-            Console.WriteLine(GetOdds)
+            getScore(parseAsBitField(tableCards2));
 
             /*getFields(bf, out int solo, out ulong ranksField, out bool flush);
             Console.WriteLine(Convert.ToString((long)bf, toBase: 2));
